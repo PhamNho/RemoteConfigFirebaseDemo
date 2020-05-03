@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1074724717278",
+    "firebase_url": "https://remote-config-firebase-demo.firebaseio.com",
+    "project_id": "remote-config-firebase-demo",
+    "storage_bucket": "remote-config-firebase-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074724717278:android:97b5b5de68272c03d5b84f",
+        "android_client_info": {
+          "package_name": "com.fpoly.remoteconfigfirebasedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074724717278-1gmo7siia74rd45v41g7ihcditco6bad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0OxkkZyN3ktTwh1NJ99R1Wz5suV01Db8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074724717278-1gmo7siia74rd45v41g7ihcditco6bad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
