@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         });
             }
         });
-
+        // Button test crasher app
         btnCrasher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
