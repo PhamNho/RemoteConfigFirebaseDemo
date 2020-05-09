@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fpoly.remoteconfigfirebasedemo.R;
 import com.fpoly.remoteconfigfirebasedemo.models.Model;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.crashlytics.internal.common.CrashlyticsCore;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.google.gson.Gson;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTest;
     private ImageView imgTest;
     private Button btnUpdate;
+    private Button btnCrasher;
+    private TextView tvCrasher;
 
     FirebaseRemoteConfig mFirebaseRemoteConfig;
 
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnTest = findViewById(R.id.btnTest);
         imgTest = findViewById(R.id.imgTest);
         btnUpdate = findViewById(R.id.btnUpdate);
+        btnCrasher = findViewById(R.id.btnCrasher);
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder().build();
@@ -68,13 +74,11 @@ public class MainActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     mFirebaseRemoteConfig.activate();
 
-
 //                                    // C1:
 //                                    btnTest.setText(mFirebaseRemoteConfig.getString("btn_text"));
 //                                    btnTest.setEnabled(mFirebaseRemoteConfig.getBoolean("btn_enable"));
 //                                    Picasso.get().load(mFirebaseRemoteConfig.getString("image_link")).into(imgTest);
 //                                    //  ------------------------------------------
-
 
                                     // C2: JSON
                                     Model model = new Gson().fromJson(mFirebaseRemoteConfig.getString("update_data"),
@@ -92,6 +96,13 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+            }
+        });
+
+        btnCrasher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvCrasher.setText("Lỗi ở đây nè ^^");
             }
         });
     }
